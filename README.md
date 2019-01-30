@@ -14,7 +14,7 @@ gem 'norma43_parser', git: "git@github.com:sequra/norma43_parser.git"
 require "norma43"
 
 norma43_file_contents = File.open("path_to_file.n43", encoding: "iso-8859-1")
-document = norma43.parse norma43_file_contents
+document = Norma43.parse norma43_file_contents
 ```
 
 ### Document
