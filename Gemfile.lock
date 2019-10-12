@@ -1,7 +1,11 @@
 PATH
   remote: .
   specs:
+<<<<<<< HEAD
     norma43_parser (2.0.0)
+=======
+    norma43_parser (1.1.0)
+>>>>>>> Use zeitwerk for loading and remove unused gems
       virtus (~> 1.0)
       zeitwerk (~> 2.0)
 
