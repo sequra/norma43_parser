@@ -1,6 +1,3 @@
-require "norma43/utils/contexts"
-require "norma43/line_processors"
-
 module Norma43
   module LineProcessors
     RSpec.describe "DocumentEnd" do
@@ -10,8 +7,8 @@ module Norma43
       let(:line) { double "Line", record_number: 35 }
 
       it "moves to the nearest document context" do
-        document = Models::Document.new
-        contexts = Contexts.new [Thing.new, document, Thing.new, Thing.new]
+        document = Norma43::Models::Document.new
+        contexts = Norma43::Utils::Contexts.new [Thing.new, document, Thing.new, Thing.new]
 
         DocumentEnd.call line, contexts
 
@@ -19,9 +16,9 @@ module Norma43
       end
 
       it "sets the number of lines on the document" do
-        document = Models::Document.new
+        document = Norma43::Models::Document.new
 
-        DocumentEnd.call line, Contexts.new(document)
+        DocumentEnd.call line, Norma43::Utils::Contexts.new(document)
 
         expect(document.number_of_lines).to eq 35
       end

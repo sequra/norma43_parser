@@ -1,6 +1,3 @@
-require "norma43/line_parsers/line_parsers"
-require "norma43/line_processors"
-
 module Norma43
   module LineHandlers
     def self.mapping

@@ -1,5 +1,4 @@
-require "norma43/utils/string_helpers"
-require 'virtus'
+require "virtus"
 
 module Norma43
   module Models

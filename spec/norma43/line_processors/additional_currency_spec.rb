@@ -1,15 +1,12 @@
-require "norma43/utils/contexts"
-require "norma43/line_processors"
-
 module Norma43
   module LineProcessors
     RSpec.describe "AdditionalCurrency" do
       let(:line){ double "Line", attributes: {} }
-      let(:transaction){ Models::Transaction.new }
-      let(:contexts){ Contexts.new(
+      let(:transaction){ Norma43::Models::Transaction.new }
+      let(:contexts){ Norma43::Utils::Contexts.new(
         [
-          Models::Document.new ,
-          Models::Account.new ,
+          Norma43::Models::Document.new ,
+          Norma43::Models::Account.new ,
           transaction
         ])
       }

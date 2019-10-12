@@ -9,7 +9,7 @@ module Norma43
       end
 
       it "accepts a valid file starting with an account" do
-        
+
         valid_file = "119999111101234567890408040409052000000001234569783MY ACCOUNT                   "
         expect{ Parser.new(valid_file) }.to_not raise_error
       end

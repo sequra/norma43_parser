@@ -1,5 +1,3 @@
-require "norma43/line_parsers/line_parsers"
-
 module Norma43
   module LineParsers
     RSpec.describe AdditionalItem do

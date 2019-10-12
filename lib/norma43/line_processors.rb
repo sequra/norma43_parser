@@ -1,4 +1,3 @@
-require "norma43/models"
 module Norma43
   module LineProcessors
     DocumentStart = ->(line, contexts) {
@@ -55,6 +54,5 @@ module Norma43
       contexts.current.additional_currency = additional_currency
       contexts
     }
-
   end
 end
