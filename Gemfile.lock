@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    norma43_parser (1.1.0)
+    norma43_parser (2.0.0)
       virtus (~> 1.0)
       zeitwerk (~> 2.0)
 
