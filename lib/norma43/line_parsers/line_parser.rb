@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Norma43
   module LineParsers
     class LineParser
@@ -25,18 +27,17 @@ module Norma43
       end
 
       private
+        def self.field_names
+          @field_names ||= []
+        end
 
-      def self.field_names
-        @field_names ||= []
-      end
+        def value_at_position(range, type)
+          typecast line[range].to_s.strip, type
+        end
 
-      def value_at_position(range, type)
-        typecast line[range].to_s.strip, type
-      end
-
-      def typecast(value, type)
-        Norma43::Utils::Typecaster.cast value, type
-      end
+        def typecast(value, type)
+          Norma43::Utils::Typecaster.cast value, type
+        end
     end
   end
 end

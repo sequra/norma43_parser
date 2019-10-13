@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "norma43"
 
 RSpec.describe Norma43 do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "time"
 
 module Norma43
@@ -12,7 +14,7 @@ module Norma43
           integer: ->(value) { value.to_i },
           time: ->(value) { Time.strptime(value, "%Y%m%d%H%M%S%N") },
           date: ->(value) { Date.strptime(value, "%y%m%d") },
-          string: ->(value) { value unless value.match(/\A0+\Z/) },
+          string: ->(value) { value unless value.match?(/\A0+\Z/) },
           raw: ->(value) { value }
         }
       end

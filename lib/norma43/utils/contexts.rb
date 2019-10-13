@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Norma43
   module Utils
     class Contexts
@@ -47,10 +49,9 @@ module Norma43
       end
 
       private
-
-      def contexts
-        @contexts ||= []
-      end
+        def contexts
+          @contexts ||= []
+        end
     end
   end
 end

@@ -1,24 +1,23 @@
+require:
+  - rubocop-performance
+
 AllCops:
   TargetRubyVersion: 2.4
-
   # RuboCop has a bunch of cops enabled by default. This setting tells RuboCop
   # to ignore them, so only the ones explicitly set in this file are enabled.
   DisabledByDefault: true
   Exclude:
+    - "**/tmp/**/*"
+    - "**/templates/**/*"
     - "**/vendor/**/*"
+
+Performance:
+  Exclude:
+    - "**/test/**/*"
 
 # Prefer &&/|| over and/or.
 Style/AndOr:
   Enabled: true
-
-Style/DateTime:
-  Enabled: true
-
-# Do not use braces for hash literals when they are the last argument of a
-# method call.
-Style/BracesAroundHashParameters:
-  Enabled: true
-  EnforcedStyle: context_dependent
 
 # Align `when` with `case`.
 Layout/CaseIndentation:
@@ -41,6 +40,10 @@ Layout/EndAlignment:
 Layout/EmptyLineAfterMagicComment:
   Enabled: true
 
+Layout/EmptyLinesAroundAccessModifier:
+  Enabled: true
+  EnforcedStyle: only_before
+
 Layout/EmptyLinesAroundBlockBody:
   Enabled: true
 
@@ -56,17 +59,18 @@ Layout/EmptyLinesAroundMethodBody:
 Layout/EmptyLinesAroundModuleBody:
   Enabled: true
 
-Layout/FirstParameterIndentation:
-  Enabled: true
-
 # Use Ruby >= 1.9 syntax for hashes. Prefer { a: :b } over { :a => :b }.
 Style/HashSyntax:
+  Enabled: true
+
+Layout/IndentFirstArgument:
   Enabled: true
 
 # Method definitions after `private` or `protected` isolated calls need one
 # extra level of indentation.
 Layout/IndentationConsistency:
   Enabled: true
+  EnforcedStyle: indented_internal_methods
 
 # Two spaces, no tabs (for indentation).
 Layout/IndentationWidth:
@@ -81,13 +85,13 @@ Layout/SpaceAfterColon:
 Layout/SpaceAfterComma:
   Enabled: true
 
+Layout/SpaceAfterSemicolon:
+  Enabled: true
+
 Layout/SpaceAroundEqualsInParameterDefault:
   Enabled: true
 
 Layout/SpaceAroundKeyword:
-  Enabled: true
-
-Layout/SpaceAroundOperators:
   Enabled: true
 
 Layout/SpaceBeforeComma:
@@ -98,8 +102,6 @@ Layout/SpaceBeforeComment:
 
 Layout/SpaceBeforeFirstArg:
   Enabled: true
-  Exclude:
-    - "**/spec/**/*"
 
 Style/DefWithParentheses:
   Enabled: true
@@ -109,8 +111,20 @@ Style/MethodDefParentheses:
   Enabled: true
 
 Style/FrozenStringLiteralComment:
-  Enabled: false
+  Enabled: true
   EnforcedStyle: always
+  Exclude:
+    - "actionview/test/**/*.builder"
+    - "actionview/test/**/*.ruby"
+    - "actionpack/test/**/*.builder"
+    - "actionpack/test/**/*.ruby"
+    - "activestorage/db/migrate/**/*.rb"
+    - "activestorage/db/update_migrate/**/*.rb"
+    - "actionmailbox/db/migrate/**/*.rb"
+    - "actiontext/db/migrate/**/*.rb"
+
+Style/RedundantFreeze:
+  Enabled: true
 
 # Use `foo {}` not `foo{}`.
 Layout/SpaceBeforeBlockBraces:
@@ -119,6 +133,7 @@ Layout/SpaceBeforeBlockBraces:
 # Use `foo { bar }` not `foo {bar}`.
 Layout/SpaceInsideBlockBraces:
   Enabled: true
+  EnforcedStyleForEmptyBraces: space
 
 # Use `{ a: 1 }` not `{a:1}`.
 Layout/SpaceInsideHashLiteralBraces:
@@ -148,8 +163,20 @@ Layout/TrailingWhitespace:
 Style/UnneededPercentQ:
   Enabled: true
 
+Lint/AmbiguousOperator:
+  Enabled: true
+
+Lint/AmbiguousRegexpLiteral:
+  Enabled: true
+
+Lint/ErbNewArguments:
+  Enabled: true
+
 # Use my_method(my_arg) not my_method( my_arg ) or my_method my_arg.
 Lint/RequireParentheses:
+  Enabled: true
+
+Lint/ShadowingOuterLocalVariable:
   Enabled: true
 
 Lint/StringConversionInInterpolation:
@@ -158,11 +185,16 @@ Lint/StringConversionInInterpolation:
 Lint/UriEscapeUnescape:
   Enabled: true
 
-Metrics/LineLength:
+Lint/UselessAssignment:
   Enabled: true
-  Max: 128
+
+Lint/DeprecatedClassMethods:
+  Enabled: true
 
 Style/ParenthesesAroundCondition:
+  Enabled: true
+
+Style/RedundantBegin:
   Enabled: true
 
 Style/RedundantReturn:
@@ -193,4 +225,10 @@ Performance/EndWith:
   Enabled: true
 
 Performance/RegexpMatch:
+  Enabled: true
+
+Performance/ReverseEach:
+  Enabled: true
+
+Performance/UnfreezeString:
   Enabled: true
