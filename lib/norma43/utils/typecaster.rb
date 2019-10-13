@@ -3,7 +3,7 @@ require "time"
 module Norma43
   module Utils
     module Typecaster
-      def self.cast value, type
+      def self.cast(value, type)
         casters.fetch(type).call(value) unless value == ""
       end
 

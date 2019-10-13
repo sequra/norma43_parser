@@ -8,7 +8,6 @@ module Norma43
       it "parses the record number" do
         expect(document_end.record_number).to eq 48
       end
-
     end
   end
 end

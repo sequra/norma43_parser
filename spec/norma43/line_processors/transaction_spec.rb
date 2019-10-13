@@ -1,11 +1,11 @@
 module Norma43
   module LineProcessors
     RSpec.describe "Transaction" do
-      let(:line){ double "Line", attributes: {} }
-      let(:account){ Norma43::Models::Account.new }
-      let(:contexts){ Norma43::Utils::Contexts.new(
+      let(:line) { double "Line", attributes: {} }
+      let(:account) { Norma43::Models::Account.new }
+      let(:contexts) { Norma43::Utils::Contexts.new(
         [
-          Norma43::Models::Document.new ,
+          Norma43::Models::Document.new,
           account,
           Norma43::Models::Transaction.new
         ])
