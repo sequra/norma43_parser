@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.shared_examples "a values line parser" do
   describe "#values" do
     it "finds first value" do

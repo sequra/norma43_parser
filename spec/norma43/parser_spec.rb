@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "norma43/parser"
 
 module Norma43
