@@ -2,7 +2,6 @@ module Norma43
   module LineParsers
     RSpec.describe Transaction do
       let :transaction do
-
         Transaction.new "2256781127040805040805020092000000000012340000000000000000000000           REF 2"
       end
 
@@ -50,4 +49,3 @@ module Norma43
     end
   end
 end
-

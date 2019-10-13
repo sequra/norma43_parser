@@ -5,8 +5,8 @@ module Norma43
         double "Line", attributes: {}
       end
 
-      let(:account){ Norma43::Models::Account.new }
-      let(:contexts){ Norma43::Utils::Contexts.new(
+      let(:account) { Norma43::Models::Account.new }
+      let(:contexts) { Norma43::Utils::Contexts.new(
         [
           Norma43::Models::Document.new,
           account,

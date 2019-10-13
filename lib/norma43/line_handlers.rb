@@ -41,7 +41,7 @@ module Norma43
     end
 
     Handler = Struct.new :parser, :processor do
-      def process line, contexts
+      def process(line, contexts)
         line_parser = self.parser.new(line)
 
         processor.call line_parser, contexts
