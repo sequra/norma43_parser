@@ -1,14 +1,16 @@
 # Norma43 file parser
 
-Norma43 is the standard format file to extract bank transactions from the SEPA (Single euro payments area), format details and content is described in the [Norma43 format](https://github.com/sequra/norma43_parser/blob/master/doc/cuaderno_43_-_junio_2012.pdf). 
+[![Gem Version](https://badge.fury.io/rb/norma43_parser.svg)](https://badge.fury.io/rb/norma43_parser)
+
+Norma43 is the standard format file to extract bank transactions from the SEPA (Single euro payments area), format details and content is described in the [Norma43 format](https://github.com/sequra/norma43_parser/blob/master/doc/cuaderno_43_-_junio_2012.pdf).
 
 ## Usage
 
 Include it in your Gemfile
+
 ```
 gem 'norma43_parser', git: "git@github.com:sequra/norma43_parser.git"
 ```
-
 
 ```ruby
 require "norma43"
@@ -25,7 +27,7 @@ The parser returns a Norma43 Document that may include multiple accounts.
 accounts=[account1..accountN]
 ```
 
-### Account 
+### Account
 
 The account object has all the information described in the standard format and the transactions between **start_date** and **end_date**.
 
