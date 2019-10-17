@@ -1,29 +1,26 @@
-require "norma43/utils/contexts"
-require "norma43/line_processors"
-
 module Norma43
   module LineProcessors
     RSpec.describe "AccountStart" do
       let(:line){ double "Line", attributes: {} }
-      let(:document) { Models::Document.new }
-      let(:contexts){ Contexts.new}
+      let(:document) { Norma43::Models::Document.new }
+      let(:contexts){ Norma43::Utils::Contexts.new }
 
       before do
         contexts.add document
       end
 
       it "instantiates a new account with the line attributes" do
-        allow(Models::Account).to receive :new
+        allow(Norma43::Models::Account).to receive :new
 
         AccountStart.call line, contexts
 
-        expect(Models::Account).to have_received(:new).with line.attributes
+        expect(Norma43::Models::Account).to have_received(:new).with line.attributes
       end
 
       context "when AccountStart is called" do
-        let(:fake_account) { double "Models::Account" }
+        let(:fake_account) { double "Norma43::Models::Account" }
         before do
-          allow(Models::Account).to receive(:new) { fake_account }
+          allow(Norma43::Models::Account).to receive(:new) { fake_account }
         end
         let!(:subject) { AccountStart.call line, contexts }
 

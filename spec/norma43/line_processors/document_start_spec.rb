@@ -1,6 +1,3 @@
-require "norma43/utils/contexts"
-require "norma43/line_processors"
-
 module Norma43
   module LineProcessors
     RSpec.describe "DocumentStart" do
@@ -9,7 +6,7 @@ module Norma43
       it "instantiates a new document with the line attributes" do
         allow(Models::Document).to receive :new
 
-        DocumentStart.call line, Contexts.new
+        DocumentStart.call line, Norma43::Utils::Contexts.new
 
         expect(Models::Document).to have_received(:new).with line.attributes
       end
@@ -18,7 +15,7 @@ module Norma43
         fake_document = double "Models::Document"
         allow(Models::Document).to receive(:new) { fake_document }
 
-        contexts = DocumentStart.call line, Contexts.new
+        contexts = DocumentStart.call line, Norma43::Utils::Contexts.new
 
         expect(contexts.current).to be fake_document
       end

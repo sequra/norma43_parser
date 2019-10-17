@@ -1,7 +1,3 @@
-require "norma43/line_parsers/file_format_validator"
-require "norma43/line_handlers"
-require "norma43/utils/contexts"
-
 module Norma43
   class InvalidFileFormatError < ArgumentError; end;
 
@@ -14,12 +10,12 @@ module Norma43
       @file = file
       validator = validate_file_format
       @contexts = if validator.has_document?
-        Contexts.new
+        Norma43::Utils::Contexts.new
       else
         # in theory Norma43 says that files should start with DocumentStart but
         # practically doesn't happen, so that we create one artificially
         # to avoid corner cases in the processors
-        Contexts.new().tap { |ctx| ctx.add Models::Document.new }
+        Norma43::Utils::Contexts.new().tap { |ctx| ctx.add Models::Document.new }
       end
     end
 
@@ -36,7 +32,7 @@ module Norma43
     private
 
     def validate_file_format
-      validator = FileFormatValidator.new first_line
+      validator = Norma43::LineParsers::FileFormatValidator.new first_line
       raise InvalidFileFormatError.new(validator.errors.join(", ")) unless validator.valid?
       validator
     end
