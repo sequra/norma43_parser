@@ -1,4 +1,6 @@
-lib = File.expand_path('../lib', __FILE__)
+# frozen_string_literal: true
+
+lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "norma43/version"
 
@@ -7,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.version       = Norma43::VERSION
   spec.authors       = ["Sequra engineering"]
   spec.email         = ["dev@sequra.es"]
-  spec.summary       = %q{Parses banks transactions files specified in rule 43}
+  spec.summary       = "Parses banks transactions files specified in rule 43"
   spec.homepage      = "https://github.com/sequra/norma43_parser"
   spec.license       = "MIT"
 

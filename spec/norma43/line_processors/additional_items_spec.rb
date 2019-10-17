@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 module Norma43
   module LineProcessors
     RSpec.describe "AdditionalItems" do
-      let(:line){ double "Line", attributes: {} }
-      let(:transaction){ Norma43::Models::Transaction.new }
-      let(:contexts){ Norma43::Utils::Contexts.new(
+      let(:line) { double "Line", attributes: {} }
+      let(:transaction) { Norma43::Models::Transaction.new }
+      let(:contexts) { Norma43::Utils::Contexts.new(
         [
-          Norma43::Models::Document.new ,
-          Norma43::Models::Account.new ,
+          Norma43::Models::Document.new,
+          Norma43::Models::Account.new,
           transaction
         ])
       }

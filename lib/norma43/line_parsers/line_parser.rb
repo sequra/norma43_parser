@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Norma43
   module LineParsers
     class LineParser
       attr_reader :line
-      def initialize line
+      def initialize(line)
         @line = line
       end
 
@@ -12,7 +14,7 @@ module Norma43
         end
       end
 
-      def self.field name, range, type = :string
+      def self.field(name, range, type = :string)
         self.field_names.push name
 
         define_method name do
@@ -25,18 +27,17 @@ module Norma43
       end
 
       private
+        def self.field_names
+          @field_names ||= []
+        end
 
-      def self.field_names
-        @field_names ||= []
-      end
+        def value_at_position(range, type)
+          typecast line[range].to_s.strip, type
+        end
 
-      def value_at_position range, type
-        typecast line[range].to_s.strip, type
-      end
-
-      def typecast value, type
-        Norma43::Utils::Typecaster.cast value, type
-      end
+        def typecast(value, type)
+          Norma43::Utils::Typecaster.cast value, type
+        end
     end
   end
 end

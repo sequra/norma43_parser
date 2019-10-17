@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require "virtus"
 
 module Norma43
   module Models
-    #forward declarations
+    # forward declarations
     class Account; end
     class Transaction; end
     class AdditionalItem; end
@@ -61,7 +63,7 @@ module Norma43
       attribute :reference_2
       attribute :additional_items, Array[AdditionalItem]
       attribute :additional_currency, AdditionalCurrency
-      def debit?; self.amount_code==DEBIT_CODE end
+      def debit?; self.amount_code == DEBIT_CODE end
     end
 
     class AdditionalItem

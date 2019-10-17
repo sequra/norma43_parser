@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 module Norma43
   module LineProcessors
     RSpec.describe "AccountStart" do
-      let(:line){ double "Line", attributes: {} }
+      let(:line) { double "Line", attributes: {} }
       let(:document) { Norma43::Models::Document.new }
-      let(:contexts){ Norma43::Utils::Contexts.new }
+      let(:contexts) { Norma43::Utils::Contexts.new }
 
       before do
         contexts.add document

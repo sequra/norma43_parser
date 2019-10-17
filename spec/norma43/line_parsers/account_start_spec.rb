@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Norma43
   module LineParsers
     RSpec.describe AccountStart do
@@ -47,7 +49,6 @@ module Norma43
       it "parses the abbreviated name" do
         expect(account_start.abbreviated_name).to eq "MY ACCOUNT"
       end
-
     end
   end
 end

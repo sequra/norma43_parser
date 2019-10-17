@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Norma43
   module LineParsers
     RSpec.describe DocumentEnd do
@@ -8,7 +10,6 @@ module Norma43
       it "parses the record number" do
         expect(document_end.record_number).to eq 48
       end
-
     end
   end
 end

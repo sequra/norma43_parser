@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module Norma43
   module Utils
     class Contexts
-      def initialize containers = nil
+      def initialize(containers = nil)
         Array(containers).compact.each do |container|
           add container
         end
@@ -15,7 +17,7 @@ module Norma43
         contexts.last
       end
 
-      def add container
+      def add(container)
         contexts.push container
       end
 
@@ -23,13 +25,13 @@ module Norma43
         contexts.pop
       end
 
-      def move_to container_class
-        until current.is_a?(container_class) or current.nil?
+      def move_to(container_class)
+        until current.is_a?(container_class) || current.nil?
           move_up
         end if contexts.any?
       end
 
-      def move_to_or_add_to_parent container_class, parent_container_class
+      def move_to_or_add_to_parent(container_class, parent_container_class)
         return self if current.is_a?(container_class)
 
         until current.kind_of?(parent_container_class)
@@ -47,10 +49,9 @@ module Norma43
       end
 
       private
-
-      def contexts
-        @contexts ||= []
-      end
+        def contexts
+          @contexts ||= []
+        end
     end
   end
 end

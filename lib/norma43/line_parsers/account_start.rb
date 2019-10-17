@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Norma43
   module LineParsers
     class AccountStart < LineParser
