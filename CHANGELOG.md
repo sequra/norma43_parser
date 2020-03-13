@@ -1,4 +1,18 @@
-## 2.0.1 (2019-10-17)
+## 2.1.0 (2020-03-13)
+
+### Breaking Changes
+
+-
+
+### Bug fixes
+
+-
+
+### Enhancements
+
+- Update rake requirement from ~> 10.0 to ~> 13.0 (#6)
+
+## 2.0.0 (2019-10-17)
 
 ### Breaking Changes
 
