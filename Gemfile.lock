@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    norma43_parser (2.1.1)
+    norma43_parser (2.3.0)
       virtus (~> 1.0)
       zeitwerk (~> 2.0)
 
@@ -56,7 +56,7 @@ GEM
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
       equalizer (~> 0.0, >= 0.0.9)
-    zeitwerk (2.3.0)
+    zeitwerk (2.4.2)
 
 PLATFORMS
   ruby
@@ -69,4 +69,4 @@ DEPENDENCIES
   rubocop-performance
 
 BUNDLED WITH
-   1.17.3
+   2.2.22
