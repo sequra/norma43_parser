@@ -1,3 +1,17 @@
+## 3.0.0 (2021-12-15)
+
+### Breaking Changes
+
+- Drop Ruby support below 2.6.
+
+### Bug fixes
+
+-
+
+### Enhancements
+
+-
+
 ## 2.1.1 (2020-03-13)
 
 ### Breaking Changes
