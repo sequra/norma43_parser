@@ -49,6 +49,8 @@ information_mode_code=3,
 transactions=[transaction1..transactionN]
 ```
 
+Also, accounts know their full IBAN. For the example above, `#iban` returns `"ES5400810054180001234567"`. 
+
 ### Transaction
 
 The transaction object has all the information described in the standard format and may include a maximum of five additional items.
