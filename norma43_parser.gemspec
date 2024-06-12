@@ -22,6 +22,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "virtus",   "~> 1.0"
   spec.add_runtime_dependency "zeitwerk", "~> 2.0"
 
-  spec.add_development_dependency "rake",       "~> 13.0"
-  spec.add_development_dependency "rspec",      "~> 3.9"
+  spec.add_development_dependency "rake",  "~> 13.0"
+  spec.add_development_dependency "rspec", "~> 3.9"
 end
