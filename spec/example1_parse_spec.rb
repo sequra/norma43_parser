@@ -27,7 +27,6 @@ RSpec.describe Norma43 do
           "currency_code"         => 1,
           "information_mode_code" => 3,
           "abbreviated_name"      => "MY ACCOUNT",
-          "iban"                  => "ES1799991111710123456789",
         )
       end
 
