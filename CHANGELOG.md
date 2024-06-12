@@ -1,3 +1,13 @@
+## 4.0.0 (2024-06-12)
+
+### Breaking Changes
+
+- Drop Ruby support below 3.0.
+
+### Bug fixes
+
+-
+
 ## 3.0.0 (2021-12-15)
 
 ### Breaking Changes
