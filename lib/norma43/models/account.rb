@@ -24,6 +24,8 @@ module Norma43
       attribute :transactions, Array[Transaction]
 
       def iban
+        return nil unless (0..9_999_999_999).include?(account_number)
+        return nil unless [bank_code, branch_code].all? { |n| (0..9999).include?(n) }
         return @iban unless @iban.nil?
 
         country_code = "ES"
