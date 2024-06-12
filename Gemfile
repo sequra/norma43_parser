@@ -3,8 +3,8 @@
 source "https://rubygems.org"
 
 group :development, :test do
-  gem "rubocop", ">= 0.75", require: false
-  gem "rubocop-performance", require: false
+  gem "rubocop", "~> 1", require: false
+  gem "rubocop-performance", "~> 1", require: false
 end
 
 gemspec
