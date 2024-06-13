@@ -8,8 +8,8 @@ module Norma43
           instance_double(Account, **attributes)
         end
 
-        describe ".from" do
-          subject(:iban) { described_class.from(account) }
+        describe ".from_account" do
+          subject(:iban) { described_class.from_account(account) }
 
           context "with the example in the documentation" do
             let(:account) { build_account(bank_code: 81, branch_code: 54, account_number: 1234567) }
@@ -44,61 +44,60 @@ module Norma43
         end
 
         describe "#to_s" do
-          subject { described_class.new(account).to_s }
-
-          let(:account) { instance_double(Account).as_null_object }
+          subject { described_class.new(bank_code: 0, branch_code: 0, account_number: 0) }
 
           it { is_expected.to(respond_to(:to_s)) }
 
           context "with incorrect account values" do
-            let(:account) { build_account(bank_code: bank_code, branch_code: branch_code, account_number: account_number) }
+            subject { described_class.new(bank_code: bank_code, branch_code: branch_code, account_number: account_number).to_s }
+
             let(:bank_code) { 9999 }
             let(:branch_code) { 1111 }
             let(:account_number) { 123456789 }
 
             context "with missing bank code" do
               let(:bank_code) { nil }
-              it { is_expected.to be_nil }
+              it { is_expected.to be_empty }
             end
 
             context "with missing branch code" do
               let(:branch_code) { nil }
-              it { is_expected.to be_nil }
+              it { is_expected.to be_empty }
             end
 
             context "with missing account number" do
               let(:account_number) { nil }
-              it { is_expected.to be_nil }
+              it { is_expected.to be_empty }
             end
 
             context "with negative bank code" do
               let(:bank_code) { -3 }
-              it { is_expected.to be_nil }
+              it { is_expected.to be_empty }
             end
 
             context "with negative branch code" do
               let(:bank_code) { -1 }
-              it { is_expected.to be_nil }
+              it { is_expected.to be_empty }
             end
 
             context "with negative account number" do
               let(:account_number) { -123456789 }
-              it { is_expected.to be_nil }
+              it { is_expected.to be_empty }
             end
 
             context "with more than 4 digits in the bank code" do
               let(:bank_code) { 99990 }
-              it { is_expected.to be_nil }
+              it { is_expected.to be_empty }
             end
 
             context "with more than 4 digits in the branch code" do
               let(:bank_code) { 11110 }
-              it { is_expected.to be_nil }
+              it { is_expected.to be_empty }
             end
 
             context "with more than 10 digits in the account number" do
               let(:account_number) { 12345678900 }
-              it { is_expected.to be_nil }
+              it { is_expected.to be_empty }
             end
           end
         end

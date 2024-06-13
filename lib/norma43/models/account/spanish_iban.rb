@@ -14,26 +14,40 @@ module Norma43
         CCC_FORMAT_STRING = "%<bank_code>04d%<branch_code>04d%<checksum_number>02d%<account_number>010d"
         CCC_WEIGHTS = [6, 3, 7, 9, 10, 5, 8, 4, 2, 1].freeze # Sorted by order of magnitude: units, tens, hundreds, etc.
 
-        def self.from(account)
-          new(account).to_s
+        def self.from_account(account)
+          return nil unless valid_numbers?(account.bank_code, account.branch_code, account.account_number)
+
+          new(
+            bank_code: account.bank_code,
+            branch_code: account.branch_code,
+            account_number: account.account_number
+          ).to_s
         end
 
-        def initialize(account)
-          @bank_code = account.bank_code
-          @branch_code = account.branch_code
-          @account_number = account.account_number
+        def initialize(bank_code:, branch_code:, account_number:)
+          @bank_code, @branch_code, @account_number =
+            if self.class.valid_numbers?(bank_code, branch_code, account_number)
+              [bank_code, branch_code, account_number]
+            else
+              [nil, nil, nil]
+            end
         end
 
         def to_s
-          return nil unless BANK_CODE_RANGE.include?(bank_code)
-          return nil unless BRANCH_CODE_RANGE.include?(branch_code)
-          return nil unless ACCOUNT_NUMBER_RANGE.include?(account_number)
+          return "" if [bank_code, branch_code, account_number].any?(nil)
 
           iban
         end
 
         private
           attr_reader :bank_code, :branch_code, :account_number
+
+          def self.valid_numbers?(bank_code, branch_code, account_number)
+            return false unless BANK_CODE_RANGE.include?(bank_code)
+            return false unless BRANCH_CODE_RANGE.include?(branch_code)
+            return false unless ACCOUNT_NUMBER_RANGE.include?(account_number)
+            true
+          end
 
           def iban
             format_string = IBAN_FORMAT_STRING

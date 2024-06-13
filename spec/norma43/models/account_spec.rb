@@ -9,9 +9,9 @@ module Norma43
         context "with the example in the documentation" do
           it "delegates to SpanishIban to return a IBAN string" do
             account = subject
-            allow(Account::SpanishIban).to receive(:from).with(account).and_return("ES0000000000000000000123")
+            allow(Account::SpanishIban).to receive(:from_account).with(account).and_return("ES0000000000000000000123")
             expect(account.iban).to eq("ES0000000000000000000123")
-            expect(Account::SpanishIban).to have_received(:from).with(account)
+            expect(Account::SpanishIban).to have_received(:from_account).with(account)
           end
         end
       end

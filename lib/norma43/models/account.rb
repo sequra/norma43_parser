@@ -24,7 +24,7 @@ module Norma43
       attribute :transactions, Array[Transaction]
 
       def iban
-        @iban ||= SpanishIban.from(self)
+        @iban ||= SpanishIban.from_account(self)
       end
     end
   end
