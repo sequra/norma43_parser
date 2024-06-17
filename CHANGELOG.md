@@ -1,3 +1,17 @@
+## 4.1.0 (2024-06-13)
+
+### Breaking Changes
+
+-
+
+### Bug fixes
+
+-
+
+### Enhancements
+
+- Account instances return their `#iban`
+
 ## 4.0.0 (2024-06-12)
 
 ### Breaking Changes
