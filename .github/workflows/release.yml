@@ -1,0 +1,33 @@
+name: Create gem release pull request
+on:
+  push:
+    branches:
+      - 'master'
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: GoogleCloudPlatform/release-please-action@v3
+        id: release
+        with:
+          release-type: ruby
+          package-name: norma43_parser
+          bump-minor-pre-major: true
+          version-file: 'lib/norma43/version.rb'
+      - uses: actions/checkout@v2
+        if: ${{ steps.release.outputs.release_created }}
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+        if: ${{ steps.release.outputs.release_created }}
+      - name: Publish gem to Rubygems
+        run: |
+          mkdir -p $HOME/.gem
+          touch $HOME/.gem/credentials
+          chmod 0600 $HOME/.gem/credentials
+          printf -- "---\n:rubygems: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
+          gem build *.gemspec
+          gem push --KEY rubygems --host https://rubygems.org *.gem
+        env:
+          GEM_HOST_API_KEY: "${{ secrets.RUBYGEMS_PUBLISH_TOKEN }}"
+        if: ${{ steps.release.outputs.release_created }}
