@@ -1,27 +1,3 @@
-## 4.1.0 (2024-06-13)
-
-### Breaking Changes
-
--
-
-### Bug fixes
-
--
-
-### Enhancements
-
-- Account instances return their `#iban`
-
-## 4.0.0 (2024-06-12)
-
-### Breaking Changes
-
-- Drop Ruby support below 3.0.
-
-### Bug fixes
-
--
-
 ## 3.0.0 (2021-12-15)
 
 ### Breaking Changes
