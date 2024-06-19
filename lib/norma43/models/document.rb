@@ -15,8 +15,17 @@ module Norma43
       attribute :number_of_lines
       attribute :accounts, Array[Account]
 
+      # @deprecated Please ask each transaction inside accounts for their transaction_date instead
       def transaction_date
-        accounts.map(&:date).compact.first
+        warn "[DEPRECATION] `transaction_date` is deprecated, use `#transaction_date` from transactions in `#accounts` instead"
+        date = nil
+
+        accounts.flat_map(&:transactions).each { |transaction|
+          date = transaction&.transaction_date
+          break unless date.nil?
+        }
+
+        date
       end
     end
   end
