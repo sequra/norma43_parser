@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "norma43"
+
 RSpec.configure do |config|
   config.order = :random
   Kernel.srand config.seed
