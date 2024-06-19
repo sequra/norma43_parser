@@ -3,10 +3,7 @@
 module Norma43
   module LineProcessors
     RSpec.describe AccountEnd do
-      let :line do
-        double "Line", attributes: {}
-      end
-
+      let(:line) { instance_double(LineParsers::AccountEnd, attributes: {}) } 
       let(:account) { Norma43::Models::Account.new }
       let(:contexts) { Norma43::Utils::Contexts.new(
         [
