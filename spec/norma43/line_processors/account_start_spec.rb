@@ -2,8 +2,8 @@
 
 module Norma43
   module LineProcessors
-    RSpec.describe "AccountStart" do
-      let(:line) { double "Line", attributes: {} }
+    RSpec.describe AccountStart do
+      let(:line) { instance_double(LineParsers::AccountStart, attributes: {}) }
       let(:document) { Norma43::Models::Document.new }
       let(:contexts) { Norma43::Utils::Contexts.new }
 
@@ -20,7 +20,7 @@ module Norma43
       end
 
       context "when AccountStart is called" do
-        let(:fake_account) { double "Norma43::Models::Account" }
+        let(:fake_account) { instance_double(Norma43::Models::Account) }
         before do
           allow(Norma43::Models::Account).to receive(:new) { fake_account }
         end
