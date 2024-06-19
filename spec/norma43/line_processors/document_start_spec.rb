@@ -2,8 +2,8 @@
 
 module Norma43
   module LineProcessors
-    RSpec.describe "DocumentStart" do
-      let (:line) { double "Line", attributes: {} }
+    RSpec.describe DocumentStart do
+      let(:line) { instance_double(LineParsers::DocumentStart, attributes: {}) }
 
       it "instantiates a new document with the line attributes" do
         allow(Models::Document).to receive :new
@@ -14,7 +14,7 @@ module Norma43
       end
 
       it "sets the document as the current context" do
-        fake_document = double "Models::Document"
+        fake_document = instance_double(Models::Document)
         allow(Models::Document).to receive(:new) { fake_document }
 
         contexts = DocumentStart.call line, Norma43::Utils::Contexts.new

@@ -2,8 +2,8 @@
 
 module Norma43
   module LineProcessors
-    RSpec.describe "AdditionalCurrency" do
-      let(:line) { double "Line", attributes: {} }
+    RSpec.describe AdditionalCurrency do
+      let(:line) { instance_double(LineParsers::AdditionalCurrency, attributes: {}) }
       let(:transaction) { Norma43::Models::Transaction.new }
       let(:contexts) { Norma43::Utils::Contexts.new(
         [
@@ -22,7 +22,7 @@ module Norma43
       end
 
       context "when AdditionalCurrency is called" do
-        let(:fake_additional_currency) { double "Models::AdditionalCurrency" }
+        let(:fake_additional_currency) { instance_double(Models::AdditionalCurrency) }
         before do
           allow(Models::AdditionalCurrency).to receive(:new) { fake_additional_currency }
         end
