@@ -2,24 +2,13 @@ PATH
   remote: .
   specs:
     norma43_parser (4.0.0)
-      virtus (~> 1.0)
       zeitwerk (~> 2.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.2)
-    axiom-types (0.1.1)
-      descendants_tracker (~> 0.0.4)
-      ice_nine (~> 0.11.0)
-      thread_safe (~> 0.3, >= 0.3.1)
-    coercible (1.0.0)
-      descendants_tracker (~> 0.0.1)
-    descendants_tracker (0.0.4)
-      thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.5.1)
-    equalizer (0.0.11)
-    ice_nine (0.11.2)
     json (2.7.2)
     json (2.7.2-java)
     language_server-protocol (3.17.0.3)
@@ -66,14 +55,7 @@ GEM
     ruby-progressbar (1.13.0)
     strscan (3.1.0)
     strscan (3.1.0-java)
-    thread_safe (0.3.6)
-    thread_safe (0.3.6-java)
     unicode-display_width (2.5.0)
-    virtus (1.0.5)
-      axiom-types (~> 0.1)
-      coercible (~> 1.0)
-      descendants_tracker (~> 0.0, >= 0.0.3)
-      equalizer (~> 0.0, >= 0.0.9)
     zeitwerk (2.6.15)
 
 PLATFORMS

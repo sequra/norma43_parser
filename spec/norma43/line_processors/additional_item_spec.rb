@@ -2,8 +2,8 @@
 
 module Norma43
   module LineProcessors
-    RSpec.describe "AdditionalItems" do
-      let(:line) { double "Line", attributes: {} }
+    RSpec.describe AdditionalItem do
+      let(:line) { instance_double(LineParsers::AdditionalItem, attributes: {}) }
       let(:transaction) { Norma43::Models::Transaction.new }
       let(:contexts) { Norma43::Utils::Contexts.new(
         [
@@ -22,7 +22,7 @@ module Norma43
       end
 
       context "when AdditionalItem is called" do
-        let(:fake_additional_item) { double "Models::AdditionalItem" }
+        let(:fake_additional_item) { instance_double(Models::AdditionalItem) }
         before do
           allow(Models::AdditionalItem).to receive(:new) { fake_additional_item }
         end
