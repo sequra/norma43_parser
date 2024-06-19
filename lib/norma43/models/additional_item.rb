@@ -1,15 +1,20 @@
 # frozen_string_literal: true
 
-require "virtus"
-
 module Norma43
   module Models
     class AdditionalItem
-      include Virtus.model
+      include Mixins::AttributesAssignment
 
-      attribute :data_code
-      attribute :item_1
-      attribute :item_2
+      attr_accessor :data_code, :item_1, :item_2
+
+      def initialize(attributes = EMPTY_ATTRIBUTES)
+        @data_code,
+        @item_1,
+        @item_2 = Hash(attributes).values_at(
+          :data_code,
+          :item_1,
+          :item_2)
+      end
     end
   end
 end

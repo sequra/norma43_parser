@@ -1,30 +1,62 @@
 # frozen_string_literal: true
 
-require "virtus"
-
 module Norma43
   module Models
     class Account
-      include Virtus.model
+      include Mixins::AttributesAssignment
 
-      attribute :bank_code
-      attribute :branch_code
-      attribute :account_number
-      attribute :start_date
-      attribute :end_date
-      attribute :balance_code
-      attribute :balance_amount
-      attribute :currency_code
-      attribute :information_mode_code
-      attribute :abbreviated_name
-      attribute :debit_entries
-      attribute :debit_amount
-      attribute :credit_entries
-      attribute :credit_amount
-      attribute :transactions, Array[Transaction]
+      attr_accessor :bank_code,
+        :branch_code,
+        :account_number,
+        :start_date,
+        :end_date,
+        :balance_code,
+        :balance_amount,
+        :currency_code,
+        :information_mode_code,
+        :abbreviated_name,
+        :debit_entries,
+        :debit_amount,
+        :credit_entries,
+        :credit_amount,
+        :transactions
+
+      def initialize(attributes = EMPTY_ATTRIBUTES)
+        @bank_code,
+        @branch_code,
+        @account_number,
+        @start_date,
+        @end_date,
+        @balance_code,
+        @balance_amount,
+        @currency_code,
+        @information_mode_code,
+        @abbreviated_name,
+        @debit_entries,
+        @debit_amount,
+        @credit_entries,
+        @credit_amount,
+        transactions = Hash(attributes).values_at(
+          :bank_code,
+          :branch_code,
+          :account_number,
+          :start_date,
+          :end_date,
+          :balance_code,
+          :balance_amount,
+          :currency_code,
+          :information_mode_code,
+          :abbreviated_name,
+          :debit_entries,
+          :debit_amount,
+          :credit_entries,
+          :credit_amount,
+          :transactions)
+        @transactions = Array(transactions).map { |attrs| Transaction.new(attrs) }
+      end
 
       def iban
-        @iban ||= SpanishIban.from_account(self)
+        SpanishIban.from_account(self)
       end
     end
   end

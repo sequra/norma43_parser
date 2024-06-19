@@ -1,24 +1,50 @@
 # frozen_string_literal: true
 
-require "virtus"
-
 module Norma43
   module Models
     class Transaction
-      include Virtus.model
+      include Mixins::AttributesAssignment
 
-      attribute :origin_branch_code
-      attribute :transaction_date
-      attribute :value_date
-      attribute :shared_item
-      attribute :own_item
-      attribute :amount_code
-      attribute :amount
-      attribute :document_number
-      attribute :reference_1
-      attribute :reference_2
-      attribute :additional_items, Array[AdditionalItem]
-      attribute :additional_currency, AdditionalCurrency
+      attr_accessor :origin_branch_code,
+        :transaction_date,
+        :value_date,
+        :shared_item,
+        :own_item,
+        :amount_code,
+        :amount,
+        :document_number,
+        :reference_1,
+        :reference_2,
+        :additional_items,
+        :additional_currency
+
+      def initialize(attributes = EMPTY_ATTRIBUTES)
+        @origin_branch_code,
+        @transaction_date,
+        @value_date,
+        @shared_item,
+        @own_item,
+        @amount_code,
+        @amount,
+        @document_number,
+        @reference_1,
+        @reference_2,
+        additional_items,
+        additional_currency = Hash(attributes).values_at(
+          :origin_branch_code,
+          :transaction_date,
+          :value_date,
+          :shared_item,
+          :own_item,
+          :amount_code,
+          :amount,
+          :document_number,
+          :reference_1,
+          :reference_2)
+        @additional_items = Array(additional_items).map { |attrs| AdditionalItem.new(attrs) }
+        @additional_currency = AdditionalCurrency.new(additional_currency) if additional_currency
+      end
+
       def debit?; self.amount_code == DEBIT_CODE end
     end
   end
