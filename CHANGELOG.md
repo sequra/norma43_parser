@@ -8,6 +8,13 @@
 
 * Get IBANs from account instances ([#15](https://github.com/sequra/norma43_parser/issues/15)) ([c69d162](https://github.com/sequra/norma43_parser/commit/c69d162361b188f2b2d904b1958e3108be9a3939))
 
+## [4.1.0](https://github.com/sequra/norma43_parser/compare/v4.0.0...v4.1.0) (2024-06-20)
+
+
+### Features
+
+* remove virtus dependency ([#35](https://github.com/sequra/norma43_parser/issues/35)) ([388e130](https://github.com/sequra/norma43_parser/commit/388e1303d1e86c5fc5d1df776905f3d67e26be77))
+
 ## v3.0.0 (2021-12-15)
 
 ### Breaking Changes
