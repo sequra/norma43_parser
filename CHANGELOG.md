@@ -11,7 +11,7 @@
 
 ### ⚠ BREAKING CHANGES
 
-* Drop Ruby suport below 3
+* Drop Ruby support below 3
 
 ### Features
 
