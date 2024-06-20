@@ -24,7 +24,6 @@
 
 - Drop Ruby support below 2.6.
 
-
 ## v2.1.1 (2020-03-13)
 
 ### Enhancements
