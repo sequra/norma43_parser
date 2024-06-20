@@ -3,7 +3,7 @@
 
 ### ⚠ BREAKING CHANGES
 
-* Bump Ruby to version >= 3
+* Drop Ruby support below 3
 
 ### Features
 
@@ -22,7 +22,6 @@
 ### Breaking Changes
 
 - Drop Ruby support below 2.6.
-
 
 ## v2.1.1 (2020-03-13)
 
