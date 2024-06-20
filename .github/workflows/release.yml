@@ -14,8 +14,6 @@ jobs:
           package-name: norma43_parser
           bump-minor-pre-major: true
           version-file: 'lib/norma43/version.rb'
-          last-release-sha: 'ebe2711c39f14453c3698b505724a17ba0f0c825'
-          release-as: 'v4.0.0'
       - uses: actions/checkout@v2
         if: ${{ steps.release.outputs.release_created }}
       - uses: ruby/setup-ruby@v1
