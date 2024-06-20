@@ -2,8 +2,8 @@
 
 module Norma43
   module LineProcessors
-    RSpec.describe "Transaction" do
-      let(:line) { double "Line", attributes: {} }
+    RSpec.describe Transaction do
+      let(:line) { instance_double(LineParsers::Transaction, attributes: {}) }
       let(:account) { Norma43::Models::Account.new }
       let(:contexts) { Norma43::Utils::Contexts.new(
         [
@@ -22,7 +22,7 @@ module Norma43
       end
 
       context "when Transaction is called" do
-        let(:fake_transaction) { double "Models::Transaction" }
+        let(:fake_transaction) { instance_double(Models::Transaction) }
         before do
           allow(Models::Transaction).to receive(:new) { fake_transaction }
         end

@@ -2,15 +2,12 @@
 
 module Norma43
   module LineProcessors
-    RSpec.describe "DocumentEnd" do
-      class Thing
-      end
-
-      let(:line) { double "Line", record_number: 35 }
+    RSpec.describe DocumentEnd do
+      let(:line) { instance_double(LineParsers::DocumentEnd, record_number: 35) }
 
       it "moves to the nearest document context" do
         document = Norma43::Models::Document.new
-        contexts = Norma43::Utils::Contexts.new [Thing.new, document, Thing.new, Thing.new]
+        contexts = Norma43::Utils::Contexts.new [anything, document, anything, anything]
 
         DocumentEnd.call line, contexts
 
