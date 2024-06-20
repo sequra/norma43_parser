@@ -10,6 +10,13 @@
 * Get IBANs from account instances ([#15](https://github.com/sequra/norma43_parser/issues/15)) ([c69d162](https://github.com/sequra/norma43_parser/commit/c69d162361b188f2b2d904b1958e3108be9a3939))
 
 
+## [4.0.1](https://github.com/sequra/norma43_parser/compare/v4.0.0...v4.0.1) (2024-06-20)
+
+
+### Bug Fixes
+
+* release-please workflow ([ba91a7e](https://github.com/sequra/norma43_parser/commit/ba91a7e217412057322c8456b35f5fb9832628bb))
+
 ## [4.0.0](https://github.com/sequra/norma43_parser/compare/3.0.0...v4.0.0) (2024-06-20)
 
 
