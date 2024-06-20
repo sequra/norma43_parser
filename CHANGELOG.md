@@ -5,6 +5,13 @@
 - Drop Ruby support below 2.6.
 
 
+## [3.0.1](https://github.com/sequra/norma43_parser/compare/3.0.0...v3.0.1) (2024-06-20)
+
+
+### Bug Fixes
+
+* get IBANs from account instances ([#15](https://github.com/sequra/norma43_parser/issues/15)) ([88bf15c](https://github.com/sequra/norma43_parser/commit/88bf15c9d909b3a918a79147035695501621521c))
+
 ## v2.1.1 (2020-03-13)
 
 ### Enhancements
