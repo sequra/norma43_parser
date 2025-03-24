@@ -58,7 +58,7 @@ RSpec.describe Norma43 do
               "amount_code"        => 2,
               "amount"             => 1234,
               "document_number"    => 0,
-              "reference_1"        => 0,
+              "reference_1"        => nil,
               "reference_2"        => nil,
             )
           end
