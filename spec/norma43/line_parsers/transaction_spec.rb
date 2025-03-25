@@ -42,7 +42,7 @@ module Norma43
       end
 
       it "parses the reference 1" do
-        expect(transaction.reference_1).to eq 0
+        expect(transaction.reference_1).to be_nil
       end
 
       it "parses the reference 2" do

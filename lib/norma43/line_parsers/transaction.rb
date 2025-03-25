@@ -11,7 +11,7 @@ module Norma43
       field :amount_code, 27, :integer
       field :amount, 28..41, :integer
       field :document_number, 42..51, :integer
-      field :reference_1, 52..63, :integer
+      field :reference_1, 52..63
       field :reference_2, 64..79
     end
   end

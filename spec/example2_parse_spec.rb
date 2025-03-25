@@ -5,7 +5,7 @@ require "norma43"
 RSpec.describe Norma43 do
   describe "parse" do
     let(:document) do
-      file = File.open(File.join(__dir__, "fixtures/example1.n43"),
+      file = File.open(File.join(__dir__, "fixtures/example2.n43"),
                         encoding: "iso-8859-1")
       Norma43.parse file
     end
@@ -19,25 +19,25 @@ RSpec.describe Norma43 do
 
       it "stores expected attributes from AccountStart parser" do
         expect(account).to have_attributes(
-          "bank_code"             => 9999,
-          "branch_code"           => 1111,
-          "account_number"        => 123456789,
-          "start_date"            => Date.parse("2004-08-04"),
-          "end_date"              => Date.parse("2004-09-05"),
-          "currency_code"         => 1,
+          "bank_code"             => 81,
+          "branch_code"           => 4797,
+          "account_number"        => 6995216857,
+          "start_date"            => Date.parse("2025-03-17"),
+          "end_date"              => Date.parse("2025-03-17"),
+          "currency_code"         => 978,
           "information_mode_code" => 3,
-          "abbreviated_name"      => "MY ACCOUNT",
+          "abbreviated_name"      => "SEQURA WORLDWIDE S.A.",
         )
       end
 
       it "stores expected attributes from AccountEnd parser" do
         expect(account).to have_attributes(
           "balance_code"   => 2,
-          "balance_amount" => 78889999999999,
-          "debit_entries"  => 4,
-          "debit_amount"   => 4936,
-          "credit_entries" => 2,
-          "credit_amount"  => 999999,
+          "balance_amount" => 8614571,
+          "debit_entries"  => nil,
+          "debit_amount"   => nil,
+          "credit_entries" => nil,
+          "credit_amount"  => nil,
         )
       end
 
@@ -50,16 +50,16 @@ RSpec.describe Norma43 do
           let(:transaction) { account.transactions[0] }
           it "stores expected attributes" do
             expect(transaction).to have_attributes(
-              "origin_branch_code" => 6700,
-              "transaction_date"   => Date.parse("2004-04-08"),
-              "value_date"         => Date.parse("2004-04-08"),
+              "origin_branch_code" => 7013,
+              "transaction_date"   => Date.parse("2025-03-17"),
+              "value_date"         => Date.parse("2025-03-14"),
               "shared_item"        => 4,
               "own_item"           => 7,
               "amount_code"        => 2,
-              "amount"             => 1234,
-              "document_number"    => 0,
-              "reference_1"        => nil,
-              "reference_2"        => nil,
+              "amount"             => 9726,
+              "document_number"    => 6871166755,
+              "reference_1"        => "TRANSFERENCI",
+              "reference_2"        => "A48555633617",
             )
           end
         end
@@ -75,15 +75,9 @@ RSpec.describe Norma43 do
           it "stores expected attributes" do
             expect(additional_item).to have_attributes(
               "data_code" => 1,
-              "item_1"    => "XXXXXXXXX",
-              "item_2"    => nil
+              "item_1"    => "MARIA NARANJO ENFLOR",
+              "item_2"    => "A48555633617"
             )
-          end
-        end
-
-        describe "first additional currency" do
-          xit "stores expected attributes" do
-            # We don't have exaples to write test write when have
           end
         end
       end
