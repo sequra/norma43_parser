@@ -7,6 +7,13 @@
 * Soft-deprecate `Norma43::Models::Document#transaction_date`, use transaction_date in transactions instead
 
 
+## [4.2.0](https://github.com/sequra/norma43_parser/compare/v4.1.0...v4.2.0) (2025-03-25)
+
+
+### Features
+
+* [PAY-1007] Parse `reference_1` as string to be able to filter lines ([#42](https://github.com/sequra/norma43_parser/issues/42)) ([f60f4e4](https://github.com/sequra/norma43_parser/commit/f60f4e4f396e0e4ccfba22e59018a8e97a39dd47))
+
 ## [4.0.0](https://github.com/sequra/norma43_parser/compare/3.0.0...v4.0.0) (2024-06-18)
 
 ### ⚠ BREAKING CHANGES
